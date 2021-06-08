@@ -6,7 +6,7 @@ We plan to build up a multi-input model featured to handle various type of data.
 
 The information collected during the experiment includes three different types of data representation: image information (multi-modals image matrix), physical properties such as deformation and impedance (numeric information), and velocity profile(sequential data). 
 
-![multi-input-training](.\Progress\multi-input-training.png)
+![multi-input-training](./Progress/multi-input-training.png)
 
 
 
