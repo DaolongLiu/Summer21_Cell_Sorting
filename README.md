@@ -1,7 +1,7 @@
 # Summer21_Cell_Sorting
 Summer project for multiplex cell sorting
 
-## Tool requirment:
+## Tools:
 - MATLAB image toolbox
 - Computation and data: numpy, pandas
 - Machine learning: scikit-learn, pytorch (or tf/keras if you prefer)
@@ -23,6 +23,7 @@ Create a systematic pipeline for multiplex cell sorting including:
 - Dynamic cell images as the input
 
 ## TO DO LIST
-- [ ] Polishing the image toolbox
+- [ ] polishing the image toolbox
 - [ ] building up simple classification model
-- [ ] building up simple detection model
+- [ ] building up RNN-encoder model
+- [ ] building up multi-input architecture
