@@ -32,8 +32,8 @@ for filename in sorted(os.listdir("./CELL_FOOTAGE/PC3_Squeezing_Deformation_Chan
 
         diff = []
 
-        for x in vid1.cells:
-            print(x.xCoordCenter)
+        #for x in vid1.cells:
+           # print(x.xCoordCenter)
             #print(x.yCoordCenter)
 
         for x in (range(len(vid1.cells))):
@@ -49,16 +49,39 @@ for filename in sorted(os.listdir("./CELL_FOOTAGE/PC3_Squeezing_Deformation_Chan
 
         if(len(diff) <= 51):
             continue
-
-        xhat = scipy.signal.savgol_filter(diff, 51, 3) # window size 51, polynomial order 3
+        
+        xhat = scipy.signal.savgol_filter(diff, 51, 3) #window size 51, polynomial order 3
+        a_list = np.array(range(len(vid1.cells)))
+        #a_list is time. xhat is velocity
+        result = []
+        temp = []
+        count = 0
+        for i in (range(len(a_list))):
+            for j in range(2):
+                if j == 1:
+                    temp.append(xhat[i])
+                if j == 0:
+                    temp.append(a_list[i])
+            result.append(temp)
+            temp = []
+            count += 1
+        #result = np.concatenate((a_list,xhat))
+        print(result)
+        #np.reshape(result, 2)
+        np.savetxt("array.txt", result, fmt = '%1.f')
+        
 
         plt.title("Speed vs Time") 
         plt.xlabel("Time") 
         plt.ylabel("Speed") 
         plt.plot(range(len(vid1.cells)), diff) 
-        plt.plot(range(len(vid1.cells)), xhat) 
+        plt.plot(range(len(vid1.cells)), xhat)
+        plt.savefig('Speed vs Time graph.png') 
         plt.show()
+       
 
         # plt.savefig("E:/Lehigh/Writings/Conference/CellMe Conference/MAIN 2/MAIN/graphs/{}.png".format(str(filename)[:-4]))
-
-        plt.clf()
+        
+        plt.close()
+        
+        

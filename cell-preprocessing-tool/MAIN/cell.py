@@ -24,5 +24,5 @@ class Cell:
     def takeImage(self, frame):
         crop = frame[(abs(self.yCoordCenter - self.imageSize)):(abs(self.yCoordCenter + self.imageSize)), (abs(self.xCoordCenter - self.imageSize)):abs((self.xCoordCenter + self.imageSize))]
         cv2.imshow('Image',crop)
-        cv2.imwrite('E:/Lehigh/Writings/Conference/CellMe Conference/MAIN 2/MAIN/crops/crop_{}.tif'.format(self.string), crop)
+        cv2.imwrite('duringDeformation/duringDeformation.png', crop)
         globals.imagesTaken = globals.imagesTaken + 1 
